@@ -1,4 +1,4 @@
-package com.latest.springlatest.security;
+package com.latest.springlatest.security.config;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

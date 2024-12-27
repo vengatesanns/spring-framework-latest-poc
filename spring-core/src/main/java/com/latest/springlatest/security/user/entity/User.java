@@ -1,4 +1,4 @@
-package com.latest.springlatest.user.entity;
+package com.latest.springlatest.security.user.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

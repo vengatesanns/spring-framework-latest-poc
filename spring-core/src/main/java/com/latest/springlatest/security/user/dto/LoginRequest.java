@@ -1,4 +1,4 @@
-package com.latest.springlatest.user.dto;
+package com.latest.springlatest.security.user.dto;
 
 import lombok.Data;
 

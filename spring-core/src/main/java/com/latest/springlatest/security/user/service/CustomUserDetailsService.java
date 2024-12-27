@@ -1,7 +1,7 @@
-package com.latest.springlatest.user.service;
+package com.latest.springlatest.security.user.service;
 
-import com.latest.springlatest.user.entity.User;
-import com.latest.springlatest.user.repository.UserRepository;
+import com.latest.springlatest.security.user.entity.User;
+import com.latest.springlatest.security.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

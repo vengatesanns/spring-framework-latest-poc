@@ -1,7 +1,7 @@
-package com.latest.springlatest.user.controller;
+package com.latest.springlatest.security.user.controller;
 
-import com.latest.springlatest.security.JwtTokenUtil;
-import com.latest.springlatest.user.dto.LoginRequest;
+import com.latest.springlatest.security.config.JwtTokenUtil;
+import com.latest.springlatest.security.user.dto.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
