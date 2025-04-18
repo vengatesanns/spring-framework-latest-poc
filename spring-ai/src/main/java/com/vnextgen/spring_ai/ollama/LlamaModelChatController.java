@@ -4,11 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.ai.chat.messages.SystemMessage;
 import org.springframework.ai.chat.messages.UserMessage;
+import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.embedding.EmbeddingModel;
 import org.springframework.ai.embedding.EmbeddingResponse;
-import org.springframework.ai.ollama.OllamaChatModel;
 import org.springframework.ai.ollama.api.OllamaModel;
 import org.springframework.ai.ollama.api.OllamaOptions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +22,17 @@ import java.util.Map;
 @RestController
 public class LlamaModelChatController {
 
-    private final OllamaChatModel chatModel;
-    private final EmbeddingModel embeddingModel;
-//    private final VectorStore vectorStore;
+    @Autowired
+    private ChatModel chatModel;
 
     @Autowired
-    public LlamaModelChatController(OllamaChatModel chatModel, EmbeddingModel embeddingModel) {
-        this.chatModel = chatModel;
-        this.embeddingModel = embeddingModel;
-//        this.vectorStore = vectorStore;
+    private EmbeddingModel embeddingModel;
 
-    }
 
     @GetMapping("/ai/generate")
-    public Map<String, String> generate(@RequestParam(value = "message", defaultValue = "Hi") String message) {
-        return Map.of("generation", this.chatModel.call(message));
+    public String generate(@RequestParam(value = "message", defaultValue = "Hi") String message) {
+        String response = this.chatModel.call(message);
+        return response;
     }
 
     @GetMapping("ai/custom-response")
@@ -72,22 +68,9 @@ public class LlamaModelChatController {
     }
 
     @GetMapping("/ai/embedding")
-    public Map embed(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
+    public EmbeddingResponse embed(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
         EmbeddingResponse embeddingResponse = this.embeddingModel.embedForResponse(List.of(message));
-        return Map.of("embedding", embeddingResponse);
+        return embeddingResponse;
     }
-
-
-/*    @GetMapping("/ai/vectore/search")
-    public List<Document> getFromVector() {
-        List<Document> documents = List.of(
-                new Document("Spring AI rocks!! Spring AI rocks!! Spring AI rocks!! Spring AI rocks!! Spring AI rocks!!", Map.of("meta1", "meta1")),
-                new Document("The World is Big and Salvation Lurks Around the Corner"),
-                new Document("You walk forward facing the past and you turn back toward the future.", Map.of("meta2", "meta2")));
-
-        vectorStore.add(documents);
-        List<Document> results = this.vectorStore.similaritySearch(SearchRequest.builder().query("Spring").topK(5).build());
-        return results;
-    }*/
 
 }
