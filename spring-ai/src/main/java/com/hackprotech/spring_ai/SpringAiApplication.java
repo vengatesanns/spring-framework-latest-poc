@@ -1,4 +1,4 @@
-package com.vnextgen.spring_ai;
+package com.hackprotech.spring_ai;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
