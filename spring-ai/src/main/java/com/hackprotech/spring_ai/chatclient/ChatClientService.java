@@ -57,11 +57,9 @@ public class ChatClientService {
         systemParams.put("fuelType", fuelType);
         Message systemMessage = systemPromptTemplate.createMessage(systemParams);
         Message userMessage = new UserMessage(query);
-
         List<Message> messageList = new ArrayList<>();
         messageList.add(userMessage);
         messageList.add(systemMessage);
-
         Prompt prompt = new Prompt(messageList);
         return chatClient.prompt(prompt).call().content();
     }
