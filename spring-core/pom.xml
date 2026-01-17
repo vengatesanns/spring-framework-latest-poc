@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.1</version>
+        <version>3.5.9</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.myapp</groupId>
-    <artifactId>myapp</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>myapp</name>
-    <description>learnings</description>
+    <groupId>com.vengatx</groupId>
+    <artifactId>springcore</artifactId>
+    <version>1.0.0</version>
+    <name>spring-core</name>
+    <description>Spring Core</description>
     <url/>
     <licenses>
         <license/>
