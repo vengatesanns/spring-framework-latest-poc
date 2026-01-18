@@ -13,8 +13,8 @@ public class ChatCmdLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String prompt = "Hi";
+       /* String prompt = "Hi";
         String response = chatClientBuilder.build().prompt(prompt).call().content();
-        System.out.println(response);
+        System.out.println(response);*/
     }
 }

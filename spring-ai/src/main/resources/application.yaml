@@ -1,0 +1,35 @@
+spring:
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          # Note: Only the last model defined will be active
+          # model: llama3.2:3b
+          # model: mistral
+          model: gemma3
+          temperature: 0.7
+      embedding:
+        options:
+          model: nomic-embed-text
+      init:
+        pull-model-strategy: NEVER
+        timeout: 60
+        max-retries: 10
+    vectorstore:
+      chroma:
+        client:
+          host: http://localhost
+          port: 8000
+        collection-name: SpringAiCollection
+        initialize-schema: true
+  http:
+    client:
+      factory: simple
+
+---
+genai:
+  openai:
+    model-url: https://api.openai.com/v1/models
+    chat-url: https://api.openai.com/v1/responses
+    key: ${OPENAI_API_KEY}
